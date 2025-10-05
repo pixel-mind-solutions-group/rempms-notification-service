@@ -12,8 +12,9 @@ spring:
         enabled: true
     stream:
       bindings:
-        informRegistration-out-0:
+        informRegistration-in-0:
           destination: inform-registration
+          group: ${spring.application.name}
       default-binder: kafka
       kafka:
         binder:
