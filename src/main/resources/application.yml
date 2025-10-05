@@ -1,0 +1,27 @@
+server:
+  port: 2222
+
+spring:
+  profiles:
+    active: prod
+  application:
+    name: rempms-notification-service
+  cloud:
+    openfeign:
+      okhttp:
+        enabled: true
+    stream:
+      bindings:
+        informRegistration-out-0:
+          destination: inform-registration
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud: DEBUG

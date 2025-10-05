@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_SERVER_ADDRESS:localhost:5432}/rempms_notification_management
+    username: postgres
+    password: rempmsprod@123
+    driverClassName: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
