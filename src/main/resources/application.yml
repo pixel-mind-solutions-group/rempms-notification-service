@@ -6,20 +6,35 @@ spring:
     active: prod
   application:
     name: rempms-notification-service
+
   cloud:
     openfeign:
       okhttp:
         enabled: true
+
+    function:
+      definition: email
     stream:
-      bindings:
-        informRegistration-in-0:
-          destination: inform-registration
-          group: ${spring.application.name}
       default-binder: kafka
       kafka:
         binder:
           brokers:
-            - localhost:9092
+            - localhost:9094
+          autoCreateTopics: true
+      bindings:
+        email-in-0:
+          destination: user-registration
+          group: ${spring.application.name}-email
+          content-type: application/json
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8070/eureka/
+  instance:
+    prefer-ip-address: true
 
 logging:
   level:
