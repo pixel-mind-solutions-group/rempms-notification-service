@@ -11,3 +11,13 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: none
+
+feign:
+  client:
+    config:
+      rempms-message-service:
+        url: http://localhost:2991
+
+email:
+  retry:
+    count: 3

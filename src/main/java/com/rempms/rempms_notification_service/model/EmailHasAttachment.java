@@ -15,7 +15,9 @@ public class EmailHasAttachment {
 
     private String originalFileName;
 
-    private byte[] attachment;
+    private String attachmentBase64;
+
+    private String contentType;
 
     @JoinColumn(name = "email_log_id", referencedColumnName = "id")
     @ManyToOne
