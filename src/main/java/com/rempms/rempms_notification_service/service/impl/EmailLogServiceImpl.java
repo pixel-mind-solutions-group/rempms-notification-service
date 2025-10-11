@@ -1,6 +1,6 @@
 package com.rempms.rempms_notification_service.service.impl;
 
-import com.rempms.rempms_notification_service.EmailLogRepository;
+import com.rempms.rempms_notification_service.repository.EmailLogRepository;
 import com.rempms.rempms_notification_service.dto.email.EmailRequestDTO;
 import com.rempms.rempms_notification_service.mapper.EmailLogMapper;
 import com.rempms.rempms_notification_service.model.EmailLog;
@@ -31,7 +31,7 @@ public class EmailLogServiceImpl implements EmailLogService {
 
             } catch (Exception e) {
                 log.error("EmailLogServiceImpl.createEmailLog() => Exception occurred while saving email log: {}", e.getMessage());
-                return null;
+                throw new RuntimeException(e);
             }
 
         } else {

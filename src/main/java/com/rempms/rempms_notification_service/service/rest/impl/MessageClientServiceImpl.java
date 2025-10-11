@@ -13,6 +13,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author maleeshasa
+ * @Date 2024/11/16
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -21,6 +25,13 @@ public class MessageClientServiceImpl implements MessageClientService {
     private final MessageServiceClient messageServiceClient;
     private final ObjectMapper objectMapper;
 
+    /**
+     * This method is allowed to send email
+     *
+     * @param dto {@link EmailRequestDTO} - email request dto
+     * @return {@link EmailResponseDTO} - email response
+     * @author maleeshasa
+     */
     @Override
     public EmailResponseDTO sendEmail(EmailRequestDTO dto) {
         log.info("MessageClientServiceImpl.sendEmail() => started.");

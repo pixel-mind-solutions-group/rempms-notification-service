@@ -1,4 +1,4 @@
-package com.rempms.rempms_notification_service;
+package com.rempms.rempms_notification_service.repository;
 
 import com.rempms.rempms_notification_service.model.EmailLog;
 import org.springframework.data.jpa.repository.JpaRepository;

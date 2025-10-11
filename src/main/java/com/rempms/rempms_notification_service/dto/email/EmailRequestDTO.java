@@ -9,6 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 public class EmailRequestDTO {
+    private String applicationSource;
     private List<String> toEmails = new ArrayList<>();
     private List<String> ccEmails = new ArrayList<>();
     private List<String> bccEmails = new ArrayList<>();

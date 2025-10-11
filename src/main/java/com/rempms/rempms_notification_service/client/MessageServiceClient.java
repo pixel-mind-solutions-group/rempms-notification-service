@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "rempms-message-service", url = "${feign.client.config.rempms-message-service.url}")
+@FeignClient(name = "rempms-message-service", url = "${feign.client.config.message-service.url}")
 @Headers("Content-Type: application/json")
 public interface MessageServiceClient {
 
