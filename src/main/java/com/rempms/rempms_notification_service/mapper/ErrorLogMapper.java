@@ -15,18 +15,8 @@ import java.time.LocalDateTime;
 @Component
 public class ErrorLogMapper {
 
-    private final ObjectMapper objectMapper;
-
-    public ErrorLog mapToEntity(ErrorLog errorLog, EmailRequestDTO request, Exception e) {
-        try {
-            String payloadJson = objectMapper.writeValueAsString(request);
-            errorLog.setPayload(payloadJson);
-
-        } catch (Exception ex) {
-            log.error("ErrorLogMapper.mapToEntity() => Exception: {}", ex.getMessage());
-            return null;
-        }
-
+    public ErrorLog mapToEntity(ErrorLog errorLog, EmailRequestDTO request, Throwable e) {
+        errorLog.setPayload(request != null ? request.toString() : null);
         errorLog.setError(e.getMessage());
         errorLog.setErrorType(e.getClass().getSimpleName());
         errorLog.setStackTrace(ExceptionUtil.getStackTraceAsString(e));

@@ -1,8 +1,11 @@
 package com.rempms.rempms_notification_service.model;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,32 +14,29 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "email_log")
-@Entity
 public class EmailLog {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Lob
-    @Column(nullable = false)
+    @Column
     private String payload;
 
-    @Column(nullable = false)
+    @Column
     private LocalDateTime createdAt;
 
     private LocalDateTime sentAt;
 
-    @Column(nullable = false)
+    @Column
     private String createdBy;
 
     private LocalDateTime retryAt;
 
-    @Column(nullable = false)
+    @Column
     private Integer retryCount;
 
-    @Column(nullable = false)
+    @Column
     private String status;
 
-    @OneToMany(mappedBy = "emailLog", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Transient // because we load it manually
     private List<EmailHasAttachment> emailHasAttachments = new ArrayList<>();
 }

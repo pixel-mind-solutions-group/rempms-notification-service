@@ -22,7 +22,7 @@ public class EmailHasAttachmentMapper {
         attachmentLog.setOriginalFileName(dto.getOriginalFileName());
         attachmentLog.setAttachmentBase64(dto.getAttachmentBase64());
         attachmentLog.setContentType(dto.getContentType());
-        attachmentLog.setEmailLog(emailLog);
+        attachmentLog.setEmailLogId(emailLog.getId());
         return attachmentLog;
     }
 
