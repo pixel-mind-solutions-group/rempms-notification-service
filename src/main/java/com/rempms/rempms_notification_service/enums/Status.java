@@ -8,7 +8,8 @@ public enum Status {
     SENT("SENT"),
     FAILED("FAILED"),
     RETRIED("RETRIED"),
-    PENDING("PENDING");
+    PENDING("PENDING"),
+    INIT_ATTEMPT_FAILED("INIT_ATTEMPT_FAILED");
 
     private final String status;
 

@@ -1,5 +1,5 @@
 server:
-  port: 2999
+  port: 2998
 
 spring:
   profiles:
@@ -15,6 +15,8 @@ spring:
     function:
       definition: email
     stream:
+      default:
+        content-type: application/json
       default-binder: kafka
       kafka:
         binder:
@@ -23,9 +25,10 @@ spring:
           autoCreateTopics: true
       bindings:
         email-in-0:
-          destination: user-registration
+          destination: user-registration-email,email-verification-url,candidate-registration-email
           group: ${spring.application.name}-email
-          content-type: application/json
+#        email-out-0:
+#          destination: user-registration-email-response
 
 eureka:
   client:
@@ -35,6 +38,10 @@ eureka:
       defaultZone: http://localhost:8070/eureka/
   instance:
     prefer-ip-address: true
+
+email:
+  retry:
+    count: 3
 
 logging:
   level:

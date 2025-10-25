@@ -36,7 +36,6 @@ public class EmailLogMapper {
         emailLog.setRetryAt(null);
         emailLog.setRetryCount(0);
         emailLog.setCreatedBy("Admin");
-        emailLog.setEmailHasAttachments(emailHasAttachmentMapper.mapToEntities(dto.getAttachments(), emailLog));
         return emailLog;
     }
 
