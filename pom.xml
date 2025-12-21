@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.5</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.rempms</groupId>
+        <artifactId>rempms-bom</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../rempms-bom/pom.xml</relativePath>
     </parent>
     <groupId>com.rempms</groupId>
     <artifactId>rempms-notification-service</artifactId>
@@ -26,11 +26,6 @@
         <tag/>
         <url/>
     </scm>
-    <properties>
-        <java.version>21</java.version>
-        <spring-cloud.version>2023.0.3</spring-cloud.version>
-        <otelVersion>2.11.0</otelVersion>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -44,7 +39,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>r2dbc-postgresql</artifactId>
-            <version>1.1.0.RELEASE</version>
+            <version>${r2dbc-postgresql.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -58,11 +53,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.cloud</groupId>-->
 <!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->
@@ -71,7 +61,7 @@
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-okhttp</artifactId>
-            <version>12.4</version>
+            <version>${feign-okhttp.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -97,7 +87,7 @@
         <dependency>
             <groupId>io.opentelemetry.javaagent</groupId>
             <artifactId>opentelemetry-javaagent</artifactId>
-            <version>${otelVersion}</version>
+            <version>${otel.version}</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
@@ -113,7 +103,7 @@
             <dependency>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.2</version>
+                <version>${maven-surefire-plugin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -127,10 +117,10 @@
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
-                <version>3.4.6</version>
+                <version>${jib.version}</version>
                 <configuration>
                     <to>
-                        <image>docker.io/maleeshasa/${project.artifactId}:v4-LTS</image>
+                        <image>docker.io/maleeshasa/${project.artifactId}:${image.tag}</image>
                     </to>
                 </configuration>
             </plugin>
